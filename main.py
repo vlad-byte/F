@@ -1,6 +1,5 @@
 import sys
 import random
-
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QBrush, QPen
 from PyQt5.QtCore import Qt, QLine, QPoint
