@@ -38,6 +38,7 @@ class MainWindow(QMainWindow):
             d = random.randint(0, 255)
             self.selected_color = QColor(b, c, d)
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     mainWin = MainWindow()
