@@ -1,10 +1,10 @@
 import sys
 import random
 
-from PyQt5.QtWidgets import QWidget, QApplication, QPushButton, QLabel, QLCDNumber, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QBrush, QPen
-from PyQt5.QtCore import QSize, Qt, QLine, QPoint
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt, QLine, QPoint
+from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_MainWindow(object):
@@ -54,7 +54,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             painter.setBrush(QBrush(Qt.yellow, Qt.SolidPattern))
             a = random.randint(100, 200)
             painter.drawEllipse(40, 40, a, a)
-
 
 
 if __name__ == '__main__':
