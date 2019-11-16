@@ -8,9 +8,7 @@ from PyQt5.QtGui import QPainter, QPen, QBrush, QColor
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-
         self.setMinimumSize(QSize(300, 300))
-
         b = random.randint(0, 255)
         c = random.randint(0, 255)
         d = random.randint(0, 255)
