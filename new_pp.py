@@ -19,24 +19,30 @@ class MainWindow(QMainWindow):
         pybutton.clicked.connect(self.draw_line)
         pybutton.resize(100, 50)
         pybutton.move(100, 240)
-        self.line = QLine()
+        self.painter = QPainter(self)
+        self.sss = []
 
     def draw_line(self):
-        button = self.sender()
-        self.line = QLine(QPoint(), button.pos())
+        self.sss = []
+        tt = random.randint(1, 5)
+        for i in range(tt):
+            a = random.randint(0, 200)
+            b = random.randint(0, 200)
+            b1 = random.randint(0, 200)
+            self.sss.append([a, b, b1])
+        b = random.randint(0, 255)
+        c = random.randint(0, 255)
+        d = random.randint(0, 255)
+        self.selected_color = QColor(b, c, d)
         self.update()
 
     def paintEvent(self,event):
-        if not self.line.isNull():
-            painter = QPainter(self)
-            painter.setPen(QPen(self.selected_color, 8, Qt.SolidLine))
-            painter.setBrush(QBrush(self.selected_color, Qt.SolidPattern))
-            a = random.randint(100, 200)
-            painter.drawEllipse(40, 40, a, a)
-            b = random.randint(0, 255)
-            c = random.randint(0, 255)
-            d = random.randint(0, 255)
-            self.selected_color = QColor(b, c, d)
+        self.painter.begin(self)
+        if self.sss:
+            self.painter.setBrush(QBrush(self.selected_color, Qt.SolidPattern))
+            for i in range(len(self.sss)):
+                self.painter.drawEllipse(self.sss[i][1], self.sss[i][2], self.sss[i][0], self.sss[i][0])
+        self.painter.end()
 
 
 if __name__ == "__main__":
