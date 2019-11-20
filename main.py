@@ -8,7 +8,7 @@ from PyQt5 import uic
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('mac.ui', self)
+        uic.loadUi('UI.ui', self)
         self.pushButton.clicked.connect(self.draw_line)
         self.painter = QPainter(self)
         self.sss = []
