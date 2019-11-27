@@ -5,6 +5,7 @@ from PyQt5.QtGui import QPainter, QBrush
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
