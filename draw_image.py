@@ -29,13 +29,14 @@ def draw_image(content):
                         content["z"] -= 1
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    content["ll"] = str(float(content["ll"][:content["ll"].find(',')]) - content["z"] * 90 / 650) + content["ll"][content["ll"].find(',') + 1:]
+                    content["ll"] = str(float(content["ll"][:content["ll"].find(',')]) - content["z"] * 90 / 650) + ',' + content["ll"][content["ll"].find(',') + 1:]
                 elif event.key == pygame.K_RIGHT:
-                    content["ll"] = str(float(content["ll"][:content["ll"].find(',')]) + content["z"] * 90 / 650) + content["ll"][content["ll"].find(',') + 1:]
+                    content["ll"] = str(float(content["ll"][:content["ll"].find(',')]) + content["z"] * 90 / 650) + ',' + content["ll"][content["ll"].find(',') + 1:]
                 elif event.key == pygame.K_UP:
-                    content["ll"] = content["ll"][:content["ll"].find(',')] - str(float(content["ll"][content["ll"].find(',') + 1:]) + content["z"] * 90 / 450)
+                    content["ll"] = content["ll"][:content["ll"].find(',')] + ',' + str(float(content["ll"][content["ll"].find(',') + 1:]) - content["z"] * 90 / 450)
+                    print(content["ll"])
                 elif event.key == pygame.K_DOWN:
-                    content["ll"] = content["ll"][:content["ll"].find(',')] + str(float(content["ll"][content["ll"].find(',') + 1:]) + content["z"] * 90 / 450)
+                    content["ll"] = content["ll"][:content["ll"].find(',')] + ',' + str(float(content["ll"][content["ll"].find(',') + 1:]) + content["z"] * 90 / 450)
         with open(map_file, 'wb') as file:
             file.write(get_map(content))
         pygame.init()
